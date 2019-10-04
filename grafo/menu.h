@@ -9,6 +9,9 @@ class Menu
 public:
     Menu();
     void show();
+    void load();
+    void save();
+    Videogame v;
 };
 
 #endif // MENU_H

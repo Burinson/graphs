@@ -2,6 +2,7 @@
 #define GRAPH_H
 #include <iostream>
 #include <vector>
+#include <set>
 using namespace std;
 
 class Boss {
@@ -20,7 +21,6 @@ private:
     string type;
     int level;
     Boss boss;
-    bool vis;
 public:
     Node();
     Node(string type, int id, int level, Boss boss);
@@ -34,8 +34,6 @@ public:
     void setLevel(int value);
     Boss getBoss() const;
     void setBoss(const Boss &value);
-    bool getVis() const;
-    void setVis(bool value);
 };
 class Graph
 {
@@ -46,14 +44,16 @@ public:
     Graph(int id, vector<Node> nodes);
     vector<Node> getNodes() const;
     void setNodes(const vector<Node> &value);
-
     int getPos() const;
     void setPos(int value);
+    set<int> getVis() const;
+    void setVis(const set<int> &value);
 
 private:
     int id;
     vector<Node> nodes;
     int pos;
+    set<int> vis;
 };
 
 inline Graph::Graph()
@@ -86,6 +86,16 @@ return pos;
 inline void Graph::setPos(int value)
 {
 pos = value;
+}
+
+inline set<int> Graph::getVis() const
+{
+return vis;
+}
+
+inline void Graph::setVis(const set<int> &value)
+{
+vis = value;
 }
 
 inline int Graph::getId() const
@@ -148,15 +158,6 @@ inline void Node::setBoss(const Boss &value)
 boss = value;
 }
 
-inline bool Node::getVis() const
-{
-return vis;
-}
-
-inline void Node::setVis(bool value)
-{
-vis = value;
-}
 
 inline Node::Node()
 {
@@ -168,7 +169,6 @@ inline Node::Node(string type, int id, int level, Boss = Boss())
     this->type = type;
     this->id = id;
     this->level = level;
-    this->vis = false;
 }
 
 
