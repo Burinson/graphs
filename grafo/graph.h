@@ -40,14 +40,20 @@ public:
 class Graph
 {
 public:
-    vector<Node> nodes;
     int getId() const;
     void setId(int value);
     Graph();
     Graph(int id, vector<Node> nodes);
+    vector<Node> getNodes() const;
+    void setNodes(const vector<Node> &value);
+
+    int getPos() const;
+    void setPos(int value);
 
 private:
     int id;
+    vector<Node> nodes;
+    int pos;
 };
 
 inline Graph::Graph()
@@ -59,6 +65,27 @@ inline Graph::Graph(int id, vector<Node> nodes = vector<Node>())
 {
     this->id = id;
     this->nodes = nodes;
+    this->pos = id;
+}
+
+inline vector<Node> Graph::getNodes() const
+{
+return nodes;
+}
+
+inline void Graph::setNodes(const vector<Node> &value)
+{
+nodes = value;
+}
+
+inline int Graph::getPos() const
+{
+return pos;
+}
+
+inline void Graph::setPos(int value)
+{
+pos = value;
 }
 
 inline int Graph::getId() const

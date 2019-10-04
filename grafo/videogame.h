@@ -3,6 +3,7 @@
 #include <iostream>
 #include <graph.h>
 #include <vector>
+#define MONKEY 🐵
 using namespace std;
 
 class Videogame
@@ -19,6 +20,10 @@ public:
     void setSz(int value);
     Graph getGlobal() const;
     void setGlobal(const Graph &value);
+    vector<Node> getView(int id);
+    void move(const int id, int pos);
+    bool validMove(int id, int newId);
+    string ids[9] = {"🐒", "🦊", "🦄", "🐇", "🦡", "🐧", "🐸", "🐈", "🐕"};
 private:
     int sz;
     Graph global;
